@@ -19,7 +19,9 @@ if(isset($_POST['c_name'])){
 
 <?php
 
-error_reporting(E_ALL)
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 require_once '../libs/swiftmailer/swift_required.php';
 require '../libs/sendgrid/SendGrid.php';
 $sendgrid = new SendGrid('app38295127@heroku.com', '1y4tljkz7840');
