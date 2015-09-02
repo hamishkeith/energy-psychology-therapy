@@ -30,4 +30,6 @@ $email
     ->setHtml('<strong>Hello World!</strong>')
 ;
 $sendgrid->send($email);
+echo 'email sent';
+exit;
 ?>
