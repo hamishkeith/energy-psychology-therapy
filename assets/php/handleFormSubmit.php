@@ -16,9 +16,6 @@ if(isset($_POST['c_name'])){
     echo json_encode($res);
 }
 */
-
-<?php
-
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
