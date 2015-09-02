@@ -153,7 +153,7 @@
 
 		$('#contact-form').submit(function(e) {
 
-			e.preventDefault();
+			//e.preventDefault();
 
 			var c_name = $('#c_name').val();
 			var c_email = $('#c_email').val();
