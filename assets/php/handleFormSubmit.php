@@ -1,5 +1,7 @@
 <?php
 
+
+/*
 if(isset($_POST['c_name'])){
     
     $res['sendstatus'] = 1;
@@ -13,5 +15,18 @@ if(isset($_POST['c_name'])){
 
     echo json_encode($res);
 }
+*/
 
+<?php
+require_once '../libs/swiftmailer/swift_required.php';
+require '../libs/sendgrid/SendGrid.php';
+$sendgrid = new SendGrid('app38295127@heroku.com', '1y4tljkz7840');
+$email
+    ->addTo('hamish.keith@operamail.com')
+    ->setFrom('me@bar.com')
+    ->setSubject('Subject goes here')
+    ->setText('Hello World!')
+    ->setHtml('<strong>Hello World!</strong>')
+;
+$sendgrid->send($email);
 ?>
