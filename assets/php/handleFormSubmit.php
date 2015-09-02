@@ -19,17 +19,16 @@ if(isset($_POST['c_name'])){
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-require_once '../libs/swiftmailer/swift_required.php';
-require '../libs/sendgrid/lib/SendGrid.php';
+require 'vendor/autoload.php';
 $sendgrid = new SendGrid('app38295127@heroku.com', '1y4tljkz7840');
-$email
-    ->addTo('hamish.keith@operamail.com')
-    ->setFrom('me@bar.com')
-    ->setSubject('Subject goes here')
-    ->setText('Hello World!')
-    ->setHtml('<strong>Hello World!</strong>')
-;
-$sendgrid->send($email);
-echo 'email sent';
-exit;
+
+$message = new SendGrid\Email();
+$message->addTo('hamish.keith@operamail.com')->
+          setFrom('me@bar.com')->
+          setSubject('Subject goes here')->
+          setText('Hello World!')->
+          setHtml('<strong>Hello World!</strong>');
+$response = $sendgrid->send($message);
+
 ?>
+
